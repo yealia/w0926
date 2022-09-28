@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>JOIN PAGE</h1>
+
+<div>
+    <div class="imageContainer">
+        <img src="/pic1" alt="">
+    </div>
+    <div>
+        <input type="text">
+    </div>
+    <div>
+        <button class="btn">REFRESH</button>
+    </div>
+</div>
+
+<script>
+    document.querySelector(".btn").addEventListener("click",()=>{
+        const imageContainer = document.querySelector(".imageContainer")
+
+        imageContainer.innerHTML=""
+
+
+
+        setTimeout(()=>{
+            const value = new Date().getMilliseconds();
+            console.log(value)
+            imageContainer.innerHTML='<img src="/pic1?v='+value+'">'
+
+        },300)
+
+    },false)
+</script>
+
+</body>
+</html>

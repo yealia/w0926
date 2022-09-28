@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>lotto PAGE</h1>
+
+<div>
+    <div class="imageContainer">
+<!--        <img src="/lotto" alt="">-->
+    </div>
+    <div>
+        <input type="number" class="number">
+    </div>
+    <div>
+        <button class="btn">돈 넣었다</button>
+    </div>
+</div>
+
+<script>
+
+
+    document.querySelector(".btn").addEventListener("click",()=> {
+
+        let money = document.getElementsByClassName("number")[0].value;
+        //ex.3000을 받고
+        let moneyInput = parseInt(money)/1000;
+        //3000을 1000으로 나눠준다음 string으로 받은것을 parseInt로 형변환해준다
+
+
+        console.log(money);
+        console.log(moneyInput);
+
+        const imageContainer = document.querySelector(".imageContainer")
+        imageContainer.innerHTML=""
+        //html 초기화
+
+        for(let count=0; count < moneyInput; count++){
+            let img = document.createElement('img');
+            //setTimeout(()=>{
+                const value = new Date().getMilliseconds();
+                img.src = `/lotto?v=+${value + count}+`;
+                //캐쉬값 초기화
+                document.getElementsByClassName('imageContainer')[0].appendChild(img);
+            // },300)
+
+
+        }
+
+    })
+
+
+</script>
+
+</body>
+</html>
